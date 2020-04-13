@@ -1,87 +1,179 @@
-//imports
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { SearchBar,Icon,Header,ButtonGroup,Button } from 'react-native-elements';
+import {View,Text,StyleSheet,ScrollView } from 'react-native';
+import {Settings} from './Settings.js'
 
-//Screen Indicator
-let onScreen = "Main";
-
-//Tree Planting
-var tree = new Map();
-tree.set("Main",
-<Screen
-parent = "Main"
-children = {[]}
-view =
-<Text>Hi</Text>
-/>);
-
-//back stack
-var backStack = ["Main"];
-
-//Tree Children Update
-tree.forEach(setChild);
-function setChild(value, key, map) {
-  tree.get(tree.get(key).props.parent).props.children.push(key);
-}
-
-//App class
 export default class App extends React.Component {
-
-  //render
-  render() {
-    return (
-
-      //Display the indicated Screen
-      <Screen parent = {tree.get(onScreen).props.parent}
-      view =
-      {tree.get(onScreen).props.view}
-      />
-    );
-  }
-}
-
-//Screen class
-class Screen extends React.Component {
-
-  //constructor
-  constructor(props)
-  {
-    super(props);
+  constructor() {
+      super()
+      this.state = {
+        search: '',
+        selectedIndex: 2
+      }
+      this.updateIndex = this.updateIndex.bind(this)
   }
 
-  //render
-  render() {
-    return (
+  updateSearch = search => {
+        this.setState({ search });
+      };
+  updateIndex (selectedIndex) {
+    this.setState({selectedIndex});
+  }
 
-      //Display the view that is passed in
-      <View>
-        {this.props.view}
+
+  render() {
+    const { search } = this.state;
+    const buttons = ['Hello', 'World', 'Buttons'];
+    const { selectedIndex } = this.state;
+    return (
+      <View style={{flex: 1}}>
+          <View style={{flexDirection: 'row',backgroundColor:"#383d42",}}>
+              <Icon
+                 searchIcon = {null}
+                 raised
+                 name='home'
+                 type='font-awesome'
+                 color='black'
+                 onPress={() => console.log('hello')}
+                 underlayColor = "blue"
+                 size = {15}
+                 containerStyle={{alignItems:'center'}}
+              />
+              <SearchBar
+                placeholder="Type Here..."
+                onChangeText={this.updateSearch}
+                value={search}
+                inputContainerStyle={{height:'5%'}}
+                containerStyle={{width:'88%',height:'100%',borderBottomWidth:0,borderTopWidth:0}}
+              />
+          </View>
+          <ScrollView>
+            <Header
+                leftComponent=<Icon
+  name='menu'
+  color='#fff'
+  onPress={() => console.log('hello')}
+  containerStyle={{height:30}}
+  underlayColor = "transparent"
+/>
+
+                centerComponent={{ text: 'Customiz312321ed Feed', style: { color: 'rgb(0, 0, 255)',fontSize: 25}}}
+                rightComponent={{ icon: '', color: '#fff' }}
+                containerStyle={{ padding: 30,height:20}}
+            />
+            <Header
+                leftComponent={{ icon: 'menu', color: '#fff' }}
+                centerComponent={{ text: 'Customize31232d Feed', style: { color: '#fff',fontSize: 25}}}
+                rightComponent={{ icon: '', color: '#fff' }}
+                containerStyle={{ padding: 30,height:20}}
+            />
+            <Header
+                leftComponent={{ icon: 'menu', color: '#fff' }}
+                centerComponent={{ text: 'Customized Feed', style: { color: '#fff',fontSize: 25}}}
+                rightComponent={{ icon: '', color: '#fff' }}
+                containerStyle={{ padding: 30,height:20}}
+            />
+            <Header
+                leftComponent={{ icon: 'menu', color: '#fff' }}
+                centerComponent={{ text: 'Custom3123213ized Feed', style: { color: '#fff',fontSize: 25}}}
+                rightComponent={{ icon: '', color: '#fff' }}
+                containerStyle={{ padding: 30,height:20}}
+            />
+            <Header
+                leftComponent={{ icon: 'menu', color: '#fff' }}
+                centerComponent={{ text: 'Cust312321omized Feed', style: { color: '#fff',fontSize: 25}}}
+                rightComponent={{ icon: '', color: '#fff' }}
+                containerStyle={{ padding: 30,height:20}}
+            />
+            <Header
+                leftComponent={{ icon: 'menu', color: '#fff' }}
+                centerComponent={{ text: 'Customized Feed', style: { color: '#fff',fontSize: 25}}}
+                rightComponent={{ icon: '', color: '#fff' }}
+                containerStyle={{ padding: 30,height:20}}
+            />
+            <Header
+                leftComponent={{ icon: 'menu', color: '#fff' }}
+                centerComponent={{ text: 'Cust333omized Feed', style: { color: '#fff',fontSize: 25}}}
+                rightComponent={{ icon: '', color: '#fff' }}
+                containerStyle={{ padding: 30,height:20}}
+            />
+            <Header
+                leftComponent={{ icon: 'menu', color: '#fff' }}
+                centerComponent={{ text: 'Custom3213ized Feed', style: { color: '#fff',fontSize: 25}}}
+                rightComponent={{ icon: '', color: '#fff' }}
+                containerStyle={{ padding: 30,height:20}}
+            />
+            <Header
+                leftComponent={{ icon: 'menu', color: '#fff' }}
+                centerComponent={{ text: 'Customized Feed', style: { color: '#fff',fontSize: 25}}}
+                rightComponent={{ icon: '', color: '#fff' }}
+                containerStyle={{ padding: 30,height:20}}
+            />
+            <Header
+                leftComponent={{ icon: 'menu', color: '#fff' }}
+                centerComponent={{ text: 'Customized Feed', style: { color: '#fff',fontSize: 25}}}
+                rightComponent={{ icon: '', color: '#fff' }}
+                containerStyle={{ padding: 30,height:20}}
+            />
+            <Header
+                leftComponent={{ icon: 'menu', color: '#fff' }}
+                centerComponent={{ text: 'Custo3123mized Feed', style: { color: '#fff',fontSize: 25}}}
+                rightComponent={{ icon: '', color: '#fff' }}
+                containerStyle={{ padding: 30,height:20}}
+            />
+            <Header
+                leftComponent={{ icon: 'menu', color: '#fff' }}
+                centerComponent={{ text: 'Customi321zed Feed', style: { color: '#fff',fontSize: 25}}}
+                rightComponent={{ icon: '', color: '#fff' }}
+                containerStyle={{ padding: 30,height:20}}
+            />
+            <Header
+                leftComponent={{ icon: 'menu', color: '#fff' }}
+                centerComponent={{ text: 'Custom312ized Feed', style: { color: '#fff',fontSize: 25}}}
+                rightComponent={{ icon: '', color: '#fff' }}
+                containerStyle={{ padding: 30,height:20}}
+            />
+            <Header
+                leftComponent={{ icon: 'menu', color: '#fff' }}
+                centerComponent={{ text: 'Custo32312mized Feed', style: { color: '#fff',fontSize: 25}}}
+                rightComponent={{ icon: '', color: '#fff' }}
+                containerStyle={{ padding: 30,height:20}}
+            />
+            <Header
+                leftComponent={{ icon: 'menu', color: '#fff' }}
+                centerComponent={{ text: 'Customi22zed Feed', style: { color: '#fff',fontSize: 25}}}
+                rightComponent={{ icon: '', color: '#fff' }}
+                containerStyle={{ padding: 30,height:20}}
+            />
+            <Header
+                leftComponent={{ icon: 'menu', color: '#fff' }}
+                centerComponent={{ text: 'Custom321321ized Feed', style: { color: '#fff',fontSize: 25}}}
+                rightComponent={{ icon: '', color: '#fff' }}
+                containerStyle={{ padding: 30,height:20}}
+            />
+
+
+
+          </ScrollView>
+
+          <View style={{flex: 1,flexDirection: 'column-reverse'}}>
+              <ButtonGroup
+                onPress={this.updateIndex}
+                selectedIndex={selectedIndex}
+                buttons={buttons}
+                containerStyle={{width:'95%',height:40,backgroundColor:'white',
+                                         alignItems:'center',justifyContent:'center'}}
+              />
+                  <Icon
+                   name='plus-circle'
+                   type='font-awesome'
+                   underlayColor = "transparent"
+                   onPress={() => console.log('hello')}
+                   size={30}
+                   containerStyle={{width:'95%',height:30, alignItems:'flex-end'}}
+                  />
+          </View>
       </View>
     );
-  }
-
-  //Switch to another Screen
-  static toScreen(to)
-  {
-    onScreen = to;
-    backStack.push(to);
-  }
-
-  //Returns to the previous Screen
-  static back()
-  {
-    onScreen = backStack.pop();
-  }
-
-  //Returns to the superCategory of the current Screen
-  up()
-  {
-    Screen.toScreen(this.parent);
-  }
-
-  //Returns a list of the current Screen's subCategories
-  down()
-  {
-    return this.children;
   }
 }
